@@ -23,6 +23,7 @@ class MacOSUtils final {
   static void showDockIcon();
 
   static void patchNSStatusBarSetImageForBigSur();
+  static void postToNotificationCenter(QString title, QString message);
 };
 
 #endif  // MACOSUTILS_H

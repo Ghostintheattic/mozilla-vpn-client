@@ -273,6 +273,14 @@ void NotificationHandler::subscriptionNotFoundNotification() {
   QString notificationBody =
       l18nStrings->t(L18nStrings::NotificationsSubscriptionNotFound);
 
+#if defined(MZ_MACOS)
+  m_lastMessage = SubscriptionNotFound;
+  emit notificationShown(notificationTitle, notificationBody);
+  MacosSystemTrayNotificationHandler::postToNotificationCenter(
+      notificationTitle, notificationBody);
+  return;
+#endif
+
   notifyInternal(SubscriptionNotFound, notificationTitle, notificationBody,
                  AppConstants::DEFAULT_OS_NOTIFICATION_MSEC);
 }

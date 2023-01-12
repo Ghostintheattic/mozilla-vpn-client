@@ -70,6 +70,11 @@ void MacosSystemTrayNotificationHandler::notify(Message type,
   m_systemTrayIcon->hide();
 }
 
+void MacosSystemTrayNotificationHandler::postToNotificationCenter(
+    const QString& title, const QString& message) {
+  MacOSUtils::postToNotificationCenter(title, message);
+}
+
 void MacosSystemTrayNotificationHandler::updateIcon() {
   logger.debug() << "Update icon";
 

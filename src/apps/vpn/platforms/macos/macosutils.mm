@@ -62,6 +62,15 @@ bool dockClickHandler(id self, SEL cmd, ...) {
 
 }  // namespace
 
+void MacOSUtils::postToNotificationCenter(QString title, QString message) {
+  NSUserNotification* notification = [[NSUserNotification alloc] init];
+  notification.title = title.toNSString();
+  notification.informativeText = message.toNSString();
+  notification.soundName = NSUserNotificationDefaultSoundName;
+  [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+  [notification autorelease];
+}
+
 // static
 void MacOSUtils::setDockClickHandler() {
   NSApplication* app = [NSApplication sharedApplication];

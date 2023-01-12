@@ -19,6 +19,9 @@ class MacosSystemTrayNotificationHandler
 
   void updateIconIndicator();
 
+  static void postToNotificationCenter(const QString& message,
+                                       const QString& title);
+
  protected:
   virtual void showHideWindow() override;
 
