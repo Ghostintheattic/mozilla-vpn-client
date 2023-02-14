@@ -85,20 +85,16 @@ FocusScope {
         id: radioButtonGroup
     }
 
-    Component.onCompleted: {
-        centerActiveServer();
-    }
-
     // Recommended servers list
     Component {
         id: listServersRecommended
 
         VPNFlickable {
             objectName: "serverCountryViewRecommend"
-            id: vpnFlickableRecommended
+            id: vpnFlickable
 
             anchors.fill: parent
-            flickContentHeight: serverListRecommended.implicitHeight + listOffset
+            flickContentHeight: serverListRecommended.implicitHeight + serverListRecommended.anchors.topMargin
 
             Column {
                 id: serverListRecommended
@@ -171,10 +167,10 @@ FocusScope {
                             // TODO: Replace placeholder strings and generate
                             // values that will be set instead of `%1`
                             text: VPNServerLatency.isActive
-                                ? "Checking... %1%".arg(Math.round(VPNServerLatency.progress * 100))
+                                ? VPNI18n.ServersViewRecommendedRefreshlLoadingLabel.arg(Math.round(VPNServerLatency.progress * 100))
                                 : (VPNController.state === VPNController.StateOff)
-                                ? "Last updated %1 ago.".arg(VPNServerLatency.lastUpdateTime)
-                                : "Last updated %1 ago. To update this list please first disconnect from the VPN."
+                                ? VPNI18n.ServersViewRecommendedRefreshLastUpdatedLabel.arg(VPNLocalizer.formatDate(new Date(), VPNServerLatency.lastUpdateTime))
+                                : VPNI18n.ServersViewRecommendedRefreshLastUpdatedDisabledLabel.arg(VPNLocalizer.formatDate(new Date(), VPNServerLatency.lastUpdateTime))
                             wrapMode: Text.WordWrap
                         }
 
@@ -216,6 +212,7 @@ FocusScope {
                                 return;
                             }
                             focusScope.setSelectedServer(modelData.country, modelData.name, modelData.localizedName);
+                            VPNSettings.recommendedServerSelected = true
                         }
 
                         RowLayout {
@@ -270,6 +267,10 @@ FocusScope {
 
             flickContentHeight: serverList.implicitHeight
             anchors.fill: parent
+
+            onHeightChanged: {
+                scrollToActiveServer(this)
+            }
 
             NumberAnimation on contentY {
                 id: scrollAnimation
@@ -381,6 +382,10 @@ FocusScope {
                     sourceComponent: listServersAll
                 }
             ]
+
+            Component.onCompleted: {
+                serverTabs.setCurrentTabIndex(VPNSettings.recommendedServerSelected ? 0 : 1)
+            }
         }
     }
 
@@ -391,8 +396,5 @@ FocusScope {
         sourceComponent: showRecommendedConnections
             ? serverTabsComponent
             : listServersAll
-        onStatusChanged: if (serverListLoader.status === Loader.Ready) {
-            centerActiveServer();
-        }
     }
 }
