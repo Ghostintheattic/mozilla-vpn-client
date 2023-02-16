@@ -13,6 +13,7 @@ include_directories(${MZ_SOURCE_DIR}/shared/hacl-star)
 include_directories(${MZ_SOURCE_DIR}/shared/hacl-star/kremlin)
 include_directories(${MZ_SOURCE_DIR}/shared/hacl-star/kremlin/minimal)
 include_directories(${CMAKE_SOURCE_DIR}/glean)
+include_directories(${CMAKE_BINARY_DIR}/translations/generated)
 
 qt_add_executable(qml_tests EXCLUDE_FROM_ALL)
 set_target_properties(qml_tests PROPERTIES FOLDER "Tests")

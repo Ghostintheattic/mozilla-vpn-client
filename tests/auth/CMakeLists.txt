@@ -12,6 +12,7 @@ include_directories(${MZ_SOURCE_DIR}/shared/glean)
 include_directories(${MZ_SOURCE_DIR}/shared/hacl-star)
 include_directories(${MZ_SOURCE_DIR}/shared/hacl-star/kremlin)
 include_directories(${MZ_SOURCE_DIR}/shared/hacl-star/kremlin/minimal)
+include_directories(${CMAKE_BINARY_DIR}/translations/generated)
 
 qt_add_executable(auth_tests EXCLUDE_FROM_ALL)
 set_target_properties(auth_tests PROPERTIES FOLDER "Tests")
