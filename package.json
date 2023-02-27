@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "functionalTest": "mocha --require ./tests/functional/setupVpn.js --timeout 30000",
-    "functionalTestWasm": "mocha --require ./tests/functional/setupWasm.js --timeout 30000"
+    "functionalTest": "mocha --require ./tests/functional/testHarness/setupVpn.js --timeout 30000",
+    "functionalTestWasm": "mocha --require ./tests/functional/testHarness/setupWasm.js --timeout 30000",
+    "functionalTestAndroid": "mocha --require ./tests/functional/testHarness/setupAndroid.js --timeout 30000"
   },
   "devDependencies": {
+    "appium-adb": "^9.10.24",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
