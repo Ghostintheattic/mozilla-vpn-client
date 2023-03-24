@@ -12,7 +12,8 @@
         <file>resources/bandwidth.svg</file>
         <file>resources/buttonLoader.svg</file>
         <file>resources/checkmark.svg</file>
-        <file>resources/checkmark-green.svg</file>
+        <file>resources/checkmark-green50.svg</file>
+        <file>resources/checkmark-green70.svg</file>
         <file>resources/chevron-right-dark.svg</file>
         <file>resources/chevron.svg</file>
         <file>resources/clock.svg</file>
@@ -64,7 +65,6 @@
         <file>resources/warning-orange.svg</file>
         <file>resources/warning.svg</file>
         <file>resources/x-red50.svg</file>
-        <file>resources/check-green70.svg</file>
         <file>resources/shield-green50.svg</file>
         <file>resources/checkmark-blue50.svg</file>
         <file>resources/navbar/home.svg</file>

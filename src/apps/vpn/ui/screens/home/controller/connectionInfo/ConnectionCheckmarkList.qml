@@ -34,7 +34,7 @@ ColumnLayout {
             Image {
                 fillMode: Image.PreserveAspectFit
                 source: type === "checkmark"
-                    ? "qrc:/nebula/resources/checkmark-green.svg"
+                    ? "qrc:/nebula/resources/checkmark-green50.svg"
                     : "qrc:/nebula/resources/dropdown-closed.svg"
                 sourceSize.height: MZTheme.theme.iconSize * 1.5
                 sourceSize.width: MZTheme.theme.iconSize * 1.5
