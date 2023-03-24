@@ -7,7 +7,6 @@
         <file>resources/animations/vpnlogo-drop_animation.json</file>
         <file>resources/animations/vpnlogo-kinetic_animation.json</file>
         <file>resources/app-rating.svg</file>
-        <file>resources/chevron-purple.svg</file>
         <file>resources/connection-error-unstable.svg</file>
         <file>resources/connection-info-dark.svg</file>
         <file>resources/copy.svg</file>
@@ -304,7 +303,6 @@
         <file>resources/logo-warning.svg</file>
         <file>resources/logo.ico</file>
         <file>resources/logo.svg</file>
-        <file>resources/magic-purple.svg</file>
         <file>resources/main-img-vpn-off.svg</file>
         <file>resources/main-img-vpn-on.svg</file>
         <file>resources/messages-empty.svg</file>
@@ -341,7 +339,6 @@
         <file>resources/server-latency-weak.svg</file>
         <file>resources/server-latency-unavailable.svg</file>
         <file>resources/server-unavailable.svg</file>
-        <file>resources/sparkling-check.svg</file>
         <file>resources/tip.svg</file>
         <file>resources/updateRecommended.svg</file>
         <file>resources/updateRequired.svg</file>
