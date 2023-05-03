@@ -851,13 +851,17 @@ void InspectorHandler::initialize() {
 #ifdef MZ_WASM
   WasmInspector::instance();
 #else
-  if (!Constants::inProduction()) {
-    InspectorWebSocketServer* inspectWebSocketServer =
-        new InspectorWebSocketServer(qApp);
-    QObject::connect(MozillaVPN::instance()->controller(),
+  #ifndef MZ_DEBUG
+    if (Constants::inProduction()) {
+      return;
+    }
+  #endif
+  InspectorWebSocketServer* inspectWebSocketServer =
+      new InspectorWebSocketServer(qApp);
+  QObject::connect(MozillaVPN::instance()->controller(),
                      &Controller::readyToQuit, inspectWebSocketServer,
                      &InspectorWebSocketServer::close);
-  }
+
 #endif
 }
 
