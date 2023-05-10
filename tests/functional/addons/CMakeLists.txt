@@ -63,6 +63,7 @@ set_target_properties(test_06_translation_threshold PROPERTIES EXCLUDE_FROM_ALL 
 add_addon_target(test_07_replacer
     OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/07_replacer/
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/07_replacer/
+    I18N_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../src/apps/vpn/translations/i18n
 )
 set_target_properties(test_07_replacer PROPERTIES EXCLUDE_FROM_ALL FALSE)
 
